@@ -1,0 +1,94 @@
+<!-- Add this to courseDetails.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+</head>
+<body>
+    <h2>Course Details</h2>
+    <!-- Add this to courseDetails.html -->
+    <div id="CourseDetail">
+
+    </div>
+    <pre>Student id               Student name</pre>
+    <ul id="studentList">
+        <!-- List of enrolled students will be displayed here -->
+    </ul>
+    <!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = urlParams.get('courseId');
+        const section = urlParams.get('section');
+        const name = urlParams.get('name');
+        const instructorname = urlParams.get('instructorname');
+        const departmentId = urlParams.get('departmentId');
+        const instructorId = urlParams.get('instructorId');
+        $('#CourseDetail').append(`<div class="CourseDetails"><p>Section: ${section}</p>
+            <p>Course: ${name}</p>
+            <p>Instructor: ${instructorname}</p></div>`)
+        // Use courseId, section, and departmentId to fetch and display information
+        fetchCourseEnrollments(courseId, section, departmentId);
+    });
+
+    function fetchCourseEnrollments(courseId, section, departmentId) {
+        $.get(`http://localhost:3000/enrollments`)
+            .done(data => {
+                console.log('Fetched course enrollments:', data);
+                // Render the course enrollment information on the page
+                renderCourseEnrollments(data,courseId);
+            })
+            .fail(error => {
+                console.error('Error fetching course enrollments hmm:', error);
+                // Handle the error appropriately
+            });
+    }
+
+    async function renderCourseEnrollments(enrollments, id) {
+    // Implement rendering logic here
+    // You can update the HTML on the page to display the fetched information
+    const enrollmentList = $('#enrollmentList');
+    enrollmentList.empty(); // Clear existing content
+
+    const students = await fetchStudents();
+
+    enrollments.forEach(enrollment => {
+        if (enrollment.course_id == id) {
+            const student = students.find(student => student.id === enrollment.student_id);
+            if (student) {
+                enrollmentList.append(`<div>${enrollment.student_id} ---------------------- ${student.name} </div>`);
+            }
+        }
+    });
+
+    // You can also display other information like instructor, etc.
+    // For that, fetch and render the corresponding data similar to the course enrollments
+}
+
+    function fetchStudents() {
+    return new Promise((resolve, reject) => {
+        $.get('http://localhost:3000/students')
+            .done(data => {
+                console.log('Fetched students:', data);
+                resolve(data);
+            })
+            .fail(error => {
+                console.error('Error fetching students:', error);
+                reject(error);
+            });
+    });
+}
+
+</script>
+
+<!-- HTML for displaying course enrollments -->
+<div id="enrollmentList">
+    <!-- Course enrollment information will be displayed here -->
+</div>
+
+</body>
+</html>

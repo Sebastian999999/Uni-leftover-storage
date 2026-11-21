@@ -1,0 +1,14 @@
+
+a.out:8201 terminated with signal 11 at PC=7efcf0268180 SP=7ffcef6dafa0.  Backtrace:
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x19180)[0x7efcf0268180]
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x188a0)[0x7efcf02678a0]
+/lib64/ld-linux-x86-64.so.2(+0x624e)[0x7efcf2a4324e]
+/lib/x86_64-linux-gnu/libc.so.6(+0x45495)[0x7efcf0045495]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0x0)[0x7efcf0045610]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x2233c1)[0x7efcf06233c1]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x2313a2)[0x7efcf06313a2]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x2f42f)[0x7efcf042f42f]
+./a.out(+0x39e6)[0x55d75a1fd9e6]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7efcf0029d90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7efcf0029e40]
+./a.out(+0x1325)[0x55d75a1fb325]

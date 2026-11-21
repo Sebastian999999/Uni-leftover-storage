@@ -1,0 +1,18 @@
+
+a.out:184492 terminated with signal 11 at PC=7f4644cfa0be SP=7ffe26948920.  Backtrace:
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x4f0be)[0x7f4644cfa0be]
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x57ccf)[0x7f4644d02ccf]
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x58dce)[0x7f4644d03dce]
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x59560)[0x7f4644d04560]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x2126792)[0x7f4646f26792]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x21397d2)[0x7f4646f397d2]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x21c335)[0x7f464501c335]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x17f24b)[0x7f4644f7f24b]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x1ed7d3)[0x7f4644fed7d3]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x1ed8a3)[0x7f4644fed8a3]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x1eeb33)[0x7f4644feeb33]
+/lib/x86_64-linux-gnu/libmpich.so.12(MPI_Barrier+0x13a)[0x7f4644e4d27a]
+./a.out(+0x32ae)[0x5644d749f2ae]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7f4644a29d90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7f4644a29e40]
+./a.out(+0x1325)[0x5644d749d325]

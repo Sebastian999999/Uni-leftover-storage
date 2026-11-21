@@ -1,0 +1,16 @@
+
+a.out:5702 terminated with signal 6 at PC=7f85bc296a7c SP=7fff34222ab0.  Backtrace:
+/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7f85bc296a7c]
+/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7f85bc242476]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7f85bc2287f3]
+/lib/x86_64-linux-gnu/libc.so.6(+0x896f6)[0x7f85bc2896f6]
+/lib/x86_64-linux-gnu/libc.so.6(+0xa0d7c)[0x7f85bc2a0d7c]
+/lib/x86_64-linux-gnu/libc.so.6(+0xa2ef0)[0x7f85bc2a2ef0]
+/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7f85bc2a54d3]
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x4aba1)[0x7f85bc499ba1]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x232adc)[0x7f85bc832adc]
+/lib/x86_64-linux-gnu/libmpich.so.12(PMPI_Finalize+0x16)[0x7f85bc6e3026]
+./a.out(+0x3c29)[0x55c987d0ac29]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7f85bc229d90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7f85bc229e40]
+./a.out(+0x1325)[0x55c987d08325]

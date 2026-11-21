@@ -1,0 +1,9 @@
+
+a.out:3822 terminated with signal 11 at PC=7f10956a179f SP=7ffdaf311af0.  Backtrace:
+/lib/x86_64-linux-gnu/libc.so.6(+0xa179f)[0x7f10956a179f]
+/lib/x86_64-linux-gnu/libc.so.6(+0xa46ab)[0x7f10956a46ab]
+/lib/x86_64-linux-gnu/libc.so.6(malloc+0x99)[0x7f10956a51b9]
+./a.out(+0x2a52)[0x55867f152a52]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7f1095629d90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7f1095629e40]
+./a.out(+0x1325)[0x55867f151325]

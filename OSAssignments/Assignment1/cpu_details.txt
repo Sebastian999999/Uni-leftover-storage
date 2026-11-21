@@ -1,0 +1,5 @@
+Total Processors: 4
+Total Physical Cores: 4
+Hyperthreading Enabled: No
+Total Cores with Hyperthreading: 4
+CPU Model: AMD Ryzen 7 5800H with Radeon Graphics

@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int INT_MAX = ~(1 << (sizeof(int) * 8 - 1));
+    const int INT_MIN = (1 << (sizeof(int) * 8 - 1));
+
+    float temperature;
+
+    // Input temperature
+    cout << "Enter temperature in Celsius: ";
+    cin >> temperature;
+
+    // Check temperature range and display relevant message
+    switch((int)temperature) {
+        case 40 ... INT_MAX:
+            cout << "Very Hot" << endl;
+            break;
+        case 30 ... 39:
+            cout << "Hot" << endl;
+            break;
+        case 20 ... 29:
+            cout << "Normal" << endl;
+            break;
+        case 10 ... 19:
+            cout << "Cold" << endl;
+            break;
+        case 0 ... 9:
+            cout << "Very Cold" << endl;
+            break;
+        case INT_MIN ... -1:
+            cout << "Freezing" << endl;
+            break;
+        default:
+            cout << "Invalid input" << endl;
+    }
+
+    return 0;
+}
+
+
+

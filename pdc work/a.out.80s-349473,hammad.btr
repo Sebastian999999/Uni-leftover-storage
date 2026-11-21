@@ -1,0 +1,3 @@
+
+a.out:349473 terminated with signal 11 at PC=556301af5420 SP=7fffffdcf708.  Backtrace:
+[0x556301af5420]

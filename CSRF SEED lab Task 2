@@ -1,0 +1,9 @@
+For CSRF Task 2 (Get Req)
+http://www.seed-server.com/action/friends/add?friend=59
+alice id = 56
+sammy id = 59
+
+FOR CSRF Task 3 (Post Req)
+http://www.seed-server.com/action/profile/edit
+samy guid = 59
+alice guid = 56

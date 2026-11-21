@@ -1,0 +1,136 @@
+1. Server-side:
+
+void handleTeacherRequest(int clientSocket, const char* teacherName, const char* password)
+
+    This function handles the teacher's request to add/edit/view their course and students' information.
+
+void handleStudentRequest(int clientSocket, char* studentName, const char* password, const char* rollNumber)
+
+    This function handles the student's request to view their course information using their roll number.
+
+void handleClient(int clientSocket)
+
+    This function is executed in the child process for each connected client. It handles the entire communication with the client.
+
+serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+
+    Creating a socket using IPv4 and TCP.
+
+memset(&serverAddr, '\0', sizeof(serverAddr));
+
+    Initializing serverAddr to all zeros.
+
+if (bind(serverSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) < 0)
+
+    Binding the server socket to the specified port.
+
+if (listen(serverSocket, MAX_CLIENTS) == 0)
+
+    Listening for incoming client connections.
+
+newSocket = accept(serverSocket, (struct sockaddr*)&newAddr, &addrSize);
+
+    Accepting a new client connection and creating a new socket for communication with that client.
+
+childPID = fork();
+
+    Forking a child process to handle the client's request concurrently.
+
+if (childPID == 0) {
+    // Child process
+    close(serverSocket);
+    handleClient(newSocket);
+    exit(EXIT_SUCCESS);
+}
+
+    In the child process, it closes the parent's server socket, handles the client's request using the handleClient function, and exits the child process.
+
+void handleClient(int clientSocket)
+
+    This function handles the communication with the client based on their role (admin, teacher, or student).
+
+2. Client-side:
+
+
+void handleTeacherRequest(int clientSocket, const char* teacherName, const char* password)
+
+    This function handles the teacher's request to add/edit/view their course and students' information.
+
+void handleStudentRequest(int clientSocket, char* studentName, const char* password, const char* rollNumber)
+
+    This function handles the student's request to view their course information using their roll number.
+
+int clientSocket;
+
+    Declaration of clientSocket variable for socket creation and communication with the server.
+
+clientSocket = socket(AF_INET, SOCK_STREAM, 0);
+
+    Creating a socket using IPv4 and TCP.
+
+
+memset(&serverAddr, '\0', sizeof(serverAddr));
+
+    Initializing serverAddr to all zeros.
+
+if (connect(clientSocket, (struct sockaddr*)&serverAddr, sizeof(serverAddr)) == -1)
+
+    Connecting the client to the server using the server's IP address and port.
+
+send(clientSocket, credentials, strlen(credentials), 0);
+
+    Sending the client's role, username, and password to the server for authentication.
+
+read(clientSocket, buffer, sizeof(buffer));
+
+    Reading the server's response after authentication.
+
+send(clientSocket, courseName, strlen(courseName), 0);
+
+    Sending the course name entered by the teacher to the server.
+
+read(clientSocket, buffer, sizeof(buffer));
+
+    Reading the server's response after sending the course name.
+
+send(clientSocket, rollNumber, strlen(rollNumber), 0);
+
+    Sending the roll number entered by the student to the server.
+
+read(clientSocket, buffer, sizeof(buffer));
+
+    Reading the server's response after sending the roll number.
+
+These code bits explain the key functionalities of the TCP Server-Client application, such as socket creation, client-server communication, handling teacher and student requests, and role-based authentication.
+
+Server-side File Creation:
+
+
+if (teacherFile != NULL) {
+    // The file exists, read its contents and send them back to the teacher
+    // ...
+} else {
+    // The file does not exist, ask the teacher if they want to create it
+    // ...
+}
+
+    When a teacher connects to the server and provides their course name, the server checks if the corresponding file (course file) exists for that teacher's course.
+    If the file exists, the server reads its contents and sends them back to the teacher. This allows the teacher to view the existing information about their course and students.
+    If the file does not exist, the server prompts the teacher if they want to create it.
+
+
+if (strcmp(createResponse, "yes") == 0) {
+    // The teacher wants to create the file, create a new file and allow them to add student information
+    teacherFile = fopen(filePath.c_str(), "w+");
+    fclose(teacherFile);
+
+    const char* successResponse = "Course file created. You can now start adding student information.";
+    send(clientSocket, successResponse, strlen(successResponse), 0);
+} else {
+    const char* failResponse = "Course file not created.";
+    send(clientSocket, failResponse, strlen(failResponse), 0);
+}
+
+    If the file for the teacher's course does not exist, the server sends a message to the teacher asking if they want to create it. The teacher must respond with "yes" or "no."
+    If the teacher responds with "yes," the server creates a new file for that course using the course name provided by the teacher. The file is created with write access so that the teacher can add student information later.
+    If the teacher responds with "no," the server informs them that the course file was not created.

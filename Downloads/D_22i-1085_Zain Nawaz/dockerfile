@@ -1,0 +1,33 @@
+
+FROM ubuntu:latest
+
+
+RUN apt-get update && \
+    apt-get install -y dos2unix && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+
+SHELL ["/bin/bash", "-c"]
+
+
+WORKDIR /app
+
+
+COPY *.sh ./
+
+
+RUN dos2unix *.sh
+
+
+RUN apt-get update && \
+    apt-get install -y nano gcc && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+
+RUN chmod +x *.sh
+
+
+CMD ["sh","main.sh"]
+

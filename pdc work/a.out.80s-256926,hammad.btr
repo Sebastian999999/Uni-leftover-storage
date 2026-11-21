@@ -1,0 +1,10 @@
+
+a.out:256926 terminated with signal 11 at PC=7ff84e060e12 SP=7fff06fe12c0.  Backtrace:
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x260e12)[0x7ff84e060e12]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x20b5a89)[0x7ff84feb5a89]
+/lib/x86_64-linux-gnu/libmpich.so.12(+0x20b60f1)[0x7ff84feb60f1]
+/lib/x86_64-linux-gnu/libmpich.so.12(PMPI_Send+0x481)[0x7ff84df15041]
+./a.out(+0x2e71)[0x558f4d43ce71]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7ff84da29d90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7ff84da29e40]
+./a.out(+0x1325)[0x558f4d43b325]

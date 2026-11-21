@@ -1,0 +1,4 @@
+[Report]
+Uri=file:///mirror/snap
+Message=database disk image is malformed
+Sparql=DELETE WHERE {\nGRAPH <http://tracker.api.gnome.org/ontology/v3/tracker#FileSystem> {\n  <urn:fileid:hammad:/mirror:917531> nie:mimeType ?nie_mimeType } };\nINSERT DATA {\nGRAPH <http://tracker.api.gnome.org/ontology/v3/tracker#FileSystem> {\n<file:///mirror/snap> a nfo:FileDataObject ; \n  nie:interpretedAs <urn:fileid:hammad:/mirror:917531> .\n<urn:fileid:hammad:/mirror:917531> a nie:InformationElement , nfo:Folder ; \n  nie:isStoredAs <file:///mirror/snap> ; \n  nie:mimeType "inode/directory" .\n}\n};\n

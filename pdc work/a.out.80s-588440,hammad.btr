@@ -1,0 +1,17 @@
+
+a.out:588440 terminated with signal 6 at PC=7fab2d696a7c SP=7ffe09b6b100.  Backtrace:
+/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7fab2d696a7c]
+/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7fab2d642476]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7fab2d6287f3]
+/lib/x86_64-linux-gnu/libc.so.6(+0x896f6)[0x7fab2d6896f6]
+/lib/x86_64-linux-gnu/libc.so.6(+0xa0d7c)[0x7fab2d6a0d7c]
+/lib/x86_64-linux-gnu/libc.so.6(+0xa2ef0)[0x7fab2d6a2ef0]
+/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7fab2d6a54d3]
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x191cc)[0x7fab2d8c41cc]
+/lib/x86_64-linux-gnu/libfabric.so.1(+0x188a0)[0x7fab2d8c38a0]
+/lib64/ld-linux-x86-64.so.2(+0x624e)[0x7fab300a024e]
+/lib/x86_64-linux-gnu/libc.so.6(+0x45495)[0x7fab2d645495]
+/lib/x86_64-linux-gnu/libc.so.6(on_exit+0x0)[0x7fab2d645610]
+/lib/x86_64-linux-gnu/libinfinipath.so.4(+0x42a7)[0x7fab2d3c32a7]
+/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7fab2d642520]
+[0x55b032ea3b80]

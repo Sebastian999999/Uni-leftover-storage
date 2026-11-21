@@ -1,0 +1,62 @@
+	// Hafiz Muhammad Faseeh Ud Din
+	// Cs-A
+	// 23I-0513
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char operation;
+    float num1, num2, result;
+
+    // Display menu
+    cout << "Menu" << endl;
+    cout << "----------------------------------------" << endl;
+    cout << "+  Addition" << endl;
+    cout << "-  Subtraction" << endl;
+    cout << "*  Multiplication" << endl;
+    cout << "/  Division" << endl;
+    cout << "_  Cancel" << endl;
+    cout << "----------------------------------------" << endl;
+
+    // Input numbers and operation
+    cout << "Enter 1st Number: ";
+    cin >> num1;
+    cout << "Enter 2nd Number: ";
+    cin >> num2;
+    cout << "Enter Operation: ";
+    cin >> operation;
+
+    // Perform calculation based on operation
+    switch(operation) {
+        case '+':
+            result = num1 + num2;
+            cout << num1 << " + " << num2 << " = " << result << endl;
+            break;
+        case '-':
+            result = num1 - num2;
+            cout << num1 << " - " << num2 << " = " << result << endl;
+            break;
+        case '*':
+            result = num1 * num2;
+            cout << num1 << " * " << num2 << " = " << result << endl;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+                cout << num1 << " / " << num2 << " = " << result << endl;
+            } else {
+                cout << "Error: Division by zero is not allowed." << endl;
+            }
+            break;
+        case '_':
+            cout << "Operation canceled." << endl;
+            break;
+        default:
+            cout << "Error: Invalid operation entered." << endl;
+    }
+
+    return 0;
+}
+

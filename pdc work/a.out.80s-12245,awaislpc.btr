@@ -1,0 +1,6 @@
+
+a.out:12245 terminated with signal 11 at PC=5645ee18f6e1 SP=7ffdccdd8140.  Backtrace:
+./a.out(+0x36e1)[0x5645ee18f6e1]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7f1f97a29d90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7f1f97a29e40]
+./a.out(+0x1325)[0x5645ee18d325]
